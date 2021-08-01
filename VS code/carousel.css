@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel {
+    overflow: hidden;
+    max-width: 600px;
+    position: relative;
+}
+
+.carousel .myslides,
+.carousel .myslides--hidden {
+    display: none;
+}
+
+.myslides img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.carousel .visible {
+    display: block;
+    animation: fadeVisibility 0.5s;
+}
+
+.carousel .carousel_actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel .carousel_actions span {
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+#prev {
+    padding-left: 20px;
+}
+
+#next {
+    padding-right: 20px;
+}
+
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: opacity linear;
+    }
+}

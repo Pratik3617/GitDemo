@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Modal</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+        
+        .button {
+            background: cornflowerblue;
+            padding: .5rem 1rem;
+            border: none;
+        }
+        
+        .button:hover {
+            background: plum;
+            cursor: pointer;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background: #222;
+            margin: 20% auto;
+            padding: 1rem;
+            width: 60%;
+        }
+        
+        .backBtn {
+            color: #fff;
+            font-size: 2rem;
+        }
+        
+        .modal-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .closeBtn {
+            color: #ffffff;
+            float: right;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .closeBtn:hover,
+        .closeBtn:focus {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="modalBtn" class="button">Cick Here</button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-btn">
+                <span class="backBtn"><i class="fas fa-arrow-left"></i></span>
+                <span class="closeBtn">&times;</span>
+            </div>
+
+            <p>Hello I am.....</p>
+        </div>
+    </div>
+
+
+
+    <script>
+        $('document').ready(function() {
+            $('#modalBtn').click(function() {
+                $('.modal').show();
+            });
+            $('.closeBtn').click(function() {
+                $('.modal').hide();
+            });
+        })
+    </script>
+</body>
+
+</html>

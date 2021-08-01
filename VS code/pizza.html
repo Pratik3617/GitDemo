@@ -1,0 +1,58 @@
+<script>
+    function getBill() {
+        var p = pi.options[pi.selectedIndex].value
+        var cost = p * qty.value
+        var dis = ""
+        var free = ""
+        if (cost < 1000) {
+            dis = 0
+            free = ""
+        } else if (cost >= 1000 && cost <= 1500) {
+            dis = cost * 0.5
+            free = "coffee.png"
+        } else if (cost > 1500) {
+            dis = cost * 0.7
+            free = "french.png"
+        }
+        var amt = cost - dis
+        var htm = "<center><table width='50%' cellpadding='10' border='1'>"
+        htm += "<caption><b><font size='30' color='Red'>PIZZA</font></b></caption>"
+        htm += "<tr><th>Price</th><td>" + p + "</td></tr>"
+        htm += "<tr><th>Discount</th><td>" + dis + "</td></tr>"
+        htm += "<tr><th>Net Amount</th><td>" + amt + "</td></tr>"
+        htm += "<tr><th>Free Item</th><td><img src='" + free + "' width='250' height='250'></td></tr</table></center>"
+        result.innerHTML = htm;
+
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <select id="pi">
+                <option>-Select-</option>
+                <option value="120">Cheese and Corn</option>
+                <option value="210">Peppy Paneer</option>
+                <option value="190">Magherita</option>
+                <option value="249">chicken</option>
+            </select><br><br>
+    <b>Quantity:</b>
+    <input type="text" id="qty">
+
+    <input type="button" value="click" onclick="getBill()"><br><br>
+
+    <div id="result"></div>
+
+</body>
+
+</html>

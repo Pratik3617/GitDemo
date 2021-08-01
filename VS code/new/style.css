@@ -1,0 +1,6 @@
+.content {
+    background-color: #2f3640;
+    background-image: repeating-linear-gradient(#2f3640, blue 10%, white 10%);
+    height: 500px;
+    width: 50%;
+}

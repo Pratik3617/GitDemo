@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carousel.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="carousel">
+        <div class="myslides visible">
+            <img src="C1.jpg">
+        </div>
+        <div class="myslides">
+            <img src="C2.jpg">
+        </div>
+        <div class="myslides">
+            <img src="C3.jpg">
+        </div>
+        <div class="myslides">
+            <img src="C1.jpg">
+        </div>
+        <div class="myslides">
+            <img src="C2.jpg">
+        </div>
+
+        <div class="carousel_actions">
+            <span id="prev"><i class="fas fa-angle-left"></i></span>
+            <span id="next"><i class="fas fa-angle-right"></i></span>
+        </div>
+
+    </div>
+
+
+    <script>
+        let slidePosition = 0;
+        const slides = document.getElementsByClassName('myslides');
+        const totalslides = slides.length;
+
+        function updateSlidePosition() {
+            for (let slide of slides) {
+                slide.classList.remove('visible');
+                slide.classList.add('myslides--hidden');
+            }
+            slides[slidePosition].classList.add('visible');
+        }
+        document.getElementById('next').addEventListener("click", function() {
+            moveToNextSlide();
+        });
+
+        document.getElementById('prev').addEventListener("click", function() {
+            moveToPrevSlide();
+        });
+
+        function moveToNextSlide() {
+
+            if (slidePosition == totalslides - 1) {
+                slidePosition = 0;
+            } else {
+                slidePosition++;
+            }
+            updateSlidePosition()
+        }
+
+        function moveToPrevSlide() {
+
+            if (slidePosition == 0) {
+                slidePosition = totalslides - 1;
+            } else {
+                slidePosition--;
+            }
+            updateSlidePosition()
+        };
+
+        carousel.attach('#carousel-demo', {
+            slidesToScroll: 1,
+            slidesToShow: 2,
+            autoplay: true,
+            autoplayspeed: 4000,
+            loop: true,
+        });
+    </script>
+</body>
+
+</html>

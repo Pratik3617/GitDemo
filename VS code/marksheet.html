@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<script>
+    function show() {
+        var total = parseInt(h.value) + parseInt(e.value) + parseInt(p.value) + parseInt(c.value) + parseInt(m.value)
+        var per = total / 5
+        var M = ""
+        var G = ""
+        if (g.value == "Male") {
+            M = "Mr"
+            G = "S/O"
+        } else if (g.value == "Female") {
+            M = "Miss"
+            G = "D/O"
+        }
+        var div = ""
+        var R = ""
+        if (per > 35) {
+            if (per >= 75 && per <= 100) {
+                R = "Pass"
+                div = "First Division"
+            } else if (per >= 55 && per <= 74) {
+                R = "Pass"
+                div = "Second Division"
+            } else if (per > 35 && per <= 54) {
+                R = "Pass"
+                div = "Third Division"
+            }
+        } else {
+            R = "Fail"
+            div = "Forth Division"
+        }
+
+        var htm = "<center><table width='40%' cellpadding='10%' cellspacing='0' border='1'>"
+        htm += "<caption><h2>Marksheet</h2></caption>"
+        htm += "<tr><th><img src='logo.png' width='40%'></th><th>Central<br>Board of<br>Secondary Education</th></tr></table><br>"
+
+        htm += "<table width='40%' cellpadding='10%' cellspacing='0' border='1'>"
+        htm += "<tr><th align='left'><b>School Name: " + sc.value + "<br>Roll Number: " + rn.value + "<br>" + M + " " + n.value + " " + G + " " + fn.value + "</b></th></tr></table><br>"
+
+        htm += "<table width='40%' cellpadding='10%' cellspacing='0' border='1'>"
+        htm += "<tr><th>Code</th><th>Subject</th><th>Min</th><th>Max</th><th>Obtained</th></tr>"
+        htm += "<tr><td align='center'>100</td><td align='center'>Hindi</td><td align='center'>35</td><td align='center'>100</td><td align='center'>" + h.value + "</td></tr>"
+        htm += "<tr><td align='center'>200</td><td align='center'>English</td><td align='center'>35</td><td align='center'>100</td><td align='center'>" + e.value + "</td></tr>"
+        htm += "<tr><td align='center'>300</td><td align='center'>Physics</td><td align='center'>35</td><td align='center'>100</td><td align='center'>" + p.value + "</td></tr>"
+        htm += "<tr><td align='center'>400</td><td align='center'>Chemistry</td><td align='center'>35</td><td align='center'>100</td><td align='center'>" + c.value + "</td></tr>"
+        htm += "<tr><td align='center'>500</td><td align='center'>Maths</td><td align='center'>35</td><td align='center'>100</td><td align='center'>" + m.value + "</td></tr>"
+        htm += "<tr><td align='center'>Total</td><td></td><td></td><td align='center'>500</td><td align='center'>" + total + "</td></tr></table><br>"
+        htm += "<table width='40%' cellpadding='10%' cellspacing='0' border='1'>"
+        htm += "<tr><td align='left'><b>Result:" + R + "--" + div + "</b></th></tr></table>"
+        result.innerHTML = htm
+    }
+</script>
+<html lang="en">
+<b><i>Roll Number:</i></b>
+<input type="text" id="rn"><br><br>
+<b><i>Name:</b></i>
+<input type="text" id="n"><br><br>
+<b><i>Father Name:</b></i>
+<input type="text" id="fn"><br><br>
+<b><i>Gender:</i></b>
+<select id="g">
+    <option>-Select-</option>
+    <option>Male</option>
+    <option>Female</option>
+</select><br><br>
+<b><i>School Name:</i></b>
+<input type="text" id="sc"><br><br>
+<b><i>Hindi:</b></i>
+<input type="text" id="h"><br><br>
+<b><i>English:</b></i>
+<input type="text" id="e"><br><br>
+<b><i>Physics:</b></i>
+<input type="text" id="p"><br><br>
+<b><i>Chemistry:</b></i>
+<input type="text" id="c"><br><br>
+<b><i>Maths:</b></i>
+<input type="text" id="m"><br><br>
+<input type="button" value="Submit" onclick="show()"><br>
+<div id="result">Result</div>
+
+</html>
